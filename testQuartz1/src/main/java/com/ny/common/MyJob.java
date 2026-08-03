@@ -1,6 +1,6 @@
 package com.ny.common;
 
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -20,7 +20,10 @@ public class MyJob implements Job{
 		SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
 		int cnt = mSvc.updateAllPoint();
 		
-		System.out.println("Job이 실행됨 : " + LocalDate.now() + "/ "+cnt+"명에게 포인터 부여(1점)" );
+		
+        
+		
+		System.out.println("Job이 실행됨 : " + ZonedDateTime.now() + "/ "+cnt+"명에게 포인터 부여(1점)" );
 		
 	}
 

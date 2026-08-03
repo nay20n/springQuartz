@@ -27,7 +27,7 @@ public class Quartz {
 		
 		CronTrigger ct = (CronTrigger) TriggerBuilder.newTrigger()
 				.withIdentity("trigger1", "tgroup1")
-				.withSchedule(CronScheduleBuilder.cronSchedule("*/20 * * * * ?")) // 매 2초마다 실행
+				.withSchedule(CronScheduleBuilder.cronSchedule("*/20 * * * * ?"))
 				.forJob(jobDetail)
 				.build();
 		
