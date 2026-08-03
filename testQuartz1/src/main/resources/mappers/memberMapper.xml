@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ny.mapper.MemberMapper">
+	<select id="loginCheck" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM member WHERE id=#{id} AND pw=#{pw}
+		]]>
+	</select>
+	<insert id="signUp">
+		<![CDATA[
+			INSERT INTO member(id,pw,name) VALUES(#{id}, #{pw}, #{name})
+		]]>
+	</insert>
+	<select id="getInfo" resultType="com.ny.dto.MemberDto">
+		<![CDATA[
+			SELECT name, id, point, pw
+			FROM member
+			WHERE id=#{id}
+		]]>
+	</select>
+	<select id="getPoint" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT point
+			FROM member
+			WHERE id=#{id}
+		]]>
+	</select>
+	<update id="modifyPoint">
+		<![CDATA[
+			UPDATE member SET point= #{point} WHERE id=#{id}
+		]]>
+	</update>
+	<select id="getInfos" resultType="com.ny.dto.MemberDto">
+		<![CDATA[
+			SELECT name, id, point, pw
+			FROM member
+		]]>
+	</select>
+	<delete id="deleteMember">
+		<![CDATA[
+			DELETE FROM member WHERE id=#{id}
+		]]>
+	</delete>
+	<update id="modifyMember">
+		<![CDATA[
+			UPDATE member 
+			SET 
+				pw=#{pw},
+				name=#{name},
+				point= #{point}  
+			WHERE id=#{id}
+		]]>
+	</update>
+</mapper>
